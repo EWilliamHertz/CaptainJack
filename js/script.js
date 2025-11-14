@@ -1,24 +1,19 @@
 /*
     Kapten Jack Website JavaScript
-    Used for simple interactions
 */
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // This is a placeholder for a mobile menu toggle
-    // To make this functional, you would add a "hamburger" button to the HTML
-    // and uncomment/modify this code.
-    
-    /*
-    const menuToggle = document.querySelector('.nav-toggle-btn');
+    // Mobile menu toggle functionality
+    const menuToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
 
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => {
+            // This line adds or removes the 'active' class
             navMenu.classList.toggle('active');
         });
     }
-    */
 
     console.log("Kapten Jack website loaded.");
 });
