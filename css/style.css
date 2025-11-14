@@ -115,9 +115,27 @@ hr {
     border-bottom: 2px solid var(--color-primary);
 }
 
+/* Hamburger Menu Button */
+.nav-toggle {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 3px;
+    line-height: 1;
+}
+
+.nav-toggle:hover {
+    background: var(--color-bg);
+}
+
+
 /* --- Hero Section (Home Page) --- */
 .hero-image {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1500x500.png?text=1920s+New+Guinea+Prospectors') center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://placehold.co/1500x500/5a4a3a/fdfaf5?text=1920s+New+Guinea') center center/cover;
     /* Add a sepia filter to the background image */
     filter: sepia(60%);
     height: 500px;
@@ -262,17 +280,52 @@ footer p {
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
+    
+    /* Show the hamburger button */
+    .nav-toggle {
+        display: block;
+    }
+
+    /* Hide the desktop menu */
     .nav-menu {
-        /* Basic mobile menu handling - JS would be needed for a toggle */
+        display: none; /* Hide menu by default */
         flex-direction: column;
         width: 100%;
-        display: none; /* Hide by default on mobile */
+        background-color: #fff;
+        
+        /* Position it as a dropdown */
+        position: absolute;
+        top: 65px; /* Adjust this to match your navbar height. (1em padding + font size) */
+        left: 0;
+        z-index: 999;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     }
+
+    /* This rule shows the menu when JS adds the 'active' class */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    /* Style the links for mobile dropdown */
     .nav-menu li {
-        margin: 10px 0;
-        text-align: center;
+        margin: 0;
+        width: 100%;
     }
     
+    .nav-menu a {
+        padding: 15px 20px;
+        display: block;
+        text-align: left;
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    .nav-menu a:hover, 
+    .nav-menu a.active {
+        background-color: var(--color-bg);
+        border-bottom: 1px solid var(--color-border); /* Override desktop style */
+    }
+
+    /* Other mobile adjustments */
     .hero-content h1 {
         font-size: 2rem;
     }
@@ -282,5 +335,13 @@ footer p {
     
     .featured-grid {
         grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+    .page-header p {
+        max-width: 100%;
+        font-size: 1rem;
     }
 }
